@@ -25,12 +25,12 @@ final class const EAddButton({ super.key, }) extends StatelessWidget {
           children: [
             EIcon(
               size: 16,
-              icon: HugeIcons.strokeRoundedFileAdd,
+              icon: HugeIcons.strokeRoundedImageAdd02,
               color: onPrimary,
               strokeWidth: 2,
             ),
             ELabel(
-              'Open',
+              'Add files',
               color: onPrimary,
               weight: .bold,
             ),
