@@ -1,13 +1,18 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hugeicons/hugeicons.dart';
 import 'package:material_ui/material_ui.dart';
 
+import '../bloc/e_files_bloc.dart';
 import 'e_icon.dart';
 import 'e_label.dart';
 
 final class const EClearButton({ super.key, }) extends StatelessWidget {
   @override
   Widget build(BuildContext context) => GestureDetector(
-    onTap: () {},
+    onTap: () {
+      final filesBloc = context.read<EFilesBloc>();
+      filesBloc.add(ERemoveAllFiles());
+    },
     child: Container(
       padding: const .symmetric(vertical: 10, horizontal: 16),
       decoration: BoxDecoration(
