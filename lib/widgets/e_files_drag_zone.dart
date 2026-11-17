@@ -1,19 +1,18 @@
 import 'package:hugeicons/hugeicons.dart';
 import 'package:material_ui/material_ui.dart';
+import 'package:provider/provider.dart';
 
 import '../utils/e_dash_border.dart';
+import '../utils/pick_files.dart';
 import 'e_add_button.dart';
 import 'e_icon.dart';
 import 'e_label.dart';
 
-final class EFilesDragZone extends StatelessWidget {
-  const new({
-    super.key,
-  });
-
+final class const EFilesDragZone({ super.key, }) extends StatelessWidget {
   @override
-  Widget build(BuildContext context) {
-    return Container(
+  Widget build(BuildContext context) => GestureDetector(
+    onTap: () => pickFiles(context.read),
+    child: Container(
       alignment: .center,
       decoration: ShapeDecoration(
         color: Theme.of(context).colorScheme.onSurface.withAlpha(10),
@@ -48,6 +47,6 @@ final class EFilesDragZone extends StatelessWidget {
           const EAddButton(),
         ],
       ),
-    );
-  }
+    ),
+  );
 }
