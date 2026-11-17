@@ -6,6 +6,7 @@ environment:
   sdk: ^3.14.0
 
 dependencies:
+  collection: ^1.19.1
   file_picker: ^13.3.3
   flutter:
     sdk: flutter
@@ -13,6 +14,7 @@ dependencies:
   google_fonts: ^9.0.0
   hugeicons: ^4.4.0
   material_ui: ^1.1.0
+  provider: ^6.1.5+1
   window_manager: ^0.7.0
 
 dev_dependencies:
