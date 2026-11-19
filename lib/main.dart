@@ -8,9 +8,7 @@ import 'bloc/e_theme_mode_bloc.dart';
 import 'bloc/e_view_mode_bloc.dart';
 import 'e_app.dart';
 
-void main() {
-  WidgetsFlutterBinding.ensureInitialized();
-
+void main() async {
   runApp(
     MultiBlocProvider(
       providers: [
@@ -30,6 +28,8 @@ void main() {
       child: const EApp(),
     ),
   );
+
+  await Future.pause(.new(milliseconds: 200));
 
   final window = WindowManager.instance.getCurrent();
   window?.titleBarStyle = .hidden;
