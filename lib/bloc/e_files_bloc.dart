@@ -7,20 +7,21 @@ final class const EAddFiles(final Iterable<EImage> images) extends EFileEvent;
 final class const ERemoveFile(final String id) extends EFileEvent;
 final class const ERemoveAllFiles() extends EFileEvent;
 
-final class EFilesBloc extends Bloc<EFileEvent, Set<EImage>> {
-  new([super.initialState = const {}]) {
+final class EFilesBloc extends Bloc<EFileEvent, List<EImage>> {
+  new([super.initialState = const []]) {
     on<EAddFiles>((event, emit) {
-      emit({ ...state, ...event.images });
+      // Temporary Set to prevent duplicates
+      emit({ ...state, ...event.images }.toList());
     });
 
     on<ERemoveFile>((event, emit) {
       state.removeWhere((e) => e.id == event.id);
-      emit({ ...state });
+      emit({ ...state }.toList());
     });
 
     on<ERemoveAllFiles>((event, emit) {
       state.clear();
-      emit({});
+      emit([]);
     });
   }
 }
