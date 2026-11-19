@@ -6,6 +6,7 @@ import '../models/e_image.dart';
 import '../widgets/e_app_bar.dart';
 import '../widgets/e_clear_button.dart';
 import '../widgets/e_files_drag_zone.dart';
+import '../widgets/e_home_files_view.dart';
 import '../widgets/e_search_field.dart';
 import '../widgets/e_view_switcher_combo_box.dart';
 
@@ -29,10 +30,10 @@ final class const EHomeScreen({ super.key, }) extends StatelessWidget {
           Expanded(
             child: AnimatedSwitcher(
               duration: const .new(milliseconds: 200),
-              child: BlocBuilder<EFilesBloc, Set<EImage>>(
+              child: BlocBuilder<EFilesBloc, List<EImage>>(
                 builder: (context, state) => switch (state.isEmpty) {
                   true => const EFilesDragZone(),
-                  false => const Placeholder(),
+                  false => const EHomeFilesView(),
                 },
               ),
             ),
